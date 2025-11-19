@@ -41,6 +41,13 @@ Pense assim:
 * Container = O bolo assado e pronto para comer
 * Docker Hub = Livro de receitas online
 
+## Rodando o container
+Primeiramente realizar a build da imagem, depois rodar o container
+```bash
+    docker build -t primeiro-app-docker .
+    docker run -t primeiro-app-docker
+```
+
 ## Comandos essenciais para começar
 ```bash
 # Listar containers rodando agora
