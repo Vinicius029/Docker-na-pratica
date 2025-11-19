@@ -61,8 +61,14 @@ Opcional (mas ajuda bastante):
 O padrão da maioria dos exemplos será:
 
 1. Clonar o repositório:
-
    ```bash
    git clone https://github.com/Vinicius029/Docker-na-pratica.git
    cd Docker-na-pratica
+   ```
+2. Rodar seu primeiro container:
+   ```bash
+   cd primeiro-app-docker
+   docker build -t primeiro-app-docker .
+   docker run -t primeiro-app-docker
+   ```
 
