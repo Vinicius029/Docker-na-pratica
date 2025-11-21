@@ -1,12 +1,11 @@
 version: '3.8'
 
 services:
-  # Serviço do banco de dados
   db:
     image: postgres:15-alpine
     container_name: todo-postgres
     environment:
-      POSTGRES_DB: todoapp
+      POSTGRES_DB: todoapp       
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: senha123
     volumes:
@@ -14,17 +13,16 @@ services:
     networks:
       - todo-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"] # só libera quando banco está REALMENTE pronto
       interval: 5s
       timeout: 3s
       retries: 5
 
-  # Serviço da aplicação web
   web:
     build: .
     container_name: todo-web
     ports:
-      - "5000:5000"
+      - "8080:8080"
     environment:
       DB_HOST: db
       DB_NAME: todoapp
@@ -35,14 +33,10 @@ services:
         condition: service_healthy
     networks:
       - todo-network
-    volumes:
-      - .:/app
 
-# Volumes para persistir dados
 volumes:
   postgres_data:
 
-# Rede para comunicação entre containers
 networks:
   todo-network:
     driver: bridge
