@@ -24,12 +24,17 @@
 | Ação                      | Comando                  |
 | ------------------------- | ------------------------ |
 | Criar imagem              | `docker build -t nome .` |
+| Criar imagem com tag      | `docker build -t app:v1.0.1 .`|
+| Adicionar tag na imagem   | `docker image tag app:v1.0.1 vinicius029/appteste:v1`|
 | Listar imagens            | `docker images`          |
 | Remover imagem            | `docker rmi nome`        |
 | Força remoção imagem      | `docker rmi -f nome`     |
 | Fazer pull                | `docker pull ubuntu`     |
 | Fazer push                | `docker push nome`       |
 | Limpar imagens não usadas | `docker image prune`     |
+| Compactar imagem          | `docker image save -o appv1.tar app:v1.0.1`|
+| Desconpactar imagem       | `docker image load -i appv1.tar`|
+
 
 ## Volumes
 | Ação               | Comando                          |
